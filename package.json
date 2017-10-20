@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "build": "NODE_ENV='production' webpack -p",
+    "deploy": "npm run build && firebase deploy",
+    "deploy:ci": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive",
+    "firebase-init": "firebase login && firebase init"
   },
   "babel": {
     "presets": [
@@ -16,6 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "0.16.2",
+    "query-string": "5.0.0",
     "react": "15.5.4",
     "react-dom": "15.5.4",
     "react-router-dom": "4.1.2"
