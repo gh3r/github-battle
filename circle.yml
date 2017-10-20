@@ -1,0 +1,13 @@
+machine:
+  node:
+    version: 6.11.1
+
+test:
+  override:
+    - npm run build
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - npm run deploy:ci
